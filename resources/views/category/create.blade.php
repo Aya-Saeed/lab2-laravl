@@ -11,7 +11,9 @@
     <form method="POST" action="{{  route('categories.save') }}">
     @csrf
         Name: <input type="text" name="name">
-        
+        <br>
+<span>   @error('name'){{ $message }}@enderror</span>
+       
         <button>Submit</button>
     </form>
 </body>

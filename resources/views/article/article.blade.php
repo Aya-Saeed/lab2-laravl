@@ -49,7 +49,14 @@
                     <td>{{ $item ->description }}</td>
                     <td>{{ $item->is_used }}</td>
                     <td>{{ $item ->slug }}</td>
-                    <td><a href= "/deletearticle/{{ $item->id }}">delete</a></td>
+                    <td>
+                      <form method="POST" action="{{ "deletearticle/" .$item['id'] }}">
+                        @csrf
+                          <input type="hidden" name="_method" value="DELETE">
+                          <button type="submit">delete</button>
+                      </form>
+                    </td>
+
                     <td><a href= {{ "editarticle/". $item['id']}}>edit</a></td>
                     <td><a href= "/articles/{{ $item->id }}">show</a></td>
                 </tr>

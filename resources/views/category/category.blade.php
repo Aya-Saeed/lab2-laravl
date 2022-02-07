@@ -41,7 +41,13 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item ->name }}</td>
-                    <td><a href= "/delete/{{ $item->id }}">delete</a></td>
+                    <td>
+                      <form method="POST" action="{{ "delete/" .$item['id'] }}">
+                        @csrf
+                          <input type="hidden" name="_method" value="DELETE">
+                          <button type="submit">delete</button>
+                      </form>
+                    </td>
                     <td><a href= {{ "edit/". $item['id']}}>edit</a></td>
                     <td><a href= "/categories/{{ $item->id }}">show</a></td>
                 </tr>

@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class article extends Model
 {
     use HasFactory;
-    public $timestamps=false;
+    public function articlemodel()
+    {
+        return $this->belongsTo(category::class);
+    }
 }

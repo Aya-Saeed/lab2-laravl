@@ -10,11 +10,12 @@
     <p>update Category page</p>
     <form method="POST" action="/edit">
     @csrf
+          <input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="id" value="{{ $data['id']}}">
 
         Name: <input type="text" name="name" value="{{ $data['name'] }}">
         
-        <button>Submit</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
